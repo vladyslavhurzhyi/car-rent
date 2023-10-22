@@ -4,7 +4,7 @@ import SearchBar from "../SearchBar/SearchBar";
 const Header = () => {
   return (
     <>
-      <header className="">
+      <header className="mx-auto max-w-screen-2xl">
         <nav
           className="flex justify-between items-center p-3  lg:px-8"
           aria-label="Global"

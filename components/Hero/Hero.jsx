@@ -12,14 +12,14 @@ const Hero = () => {
           </h1>
         </div>
 
-        <div className="block relative">
+        <div className="block relative ">
           <div className="w-[300px] md:w-[400px] lg:w-[600px] xl:w-[900px] h-[300px] lg:h-[500px]">
             <Background />
             <Image
               src="/hero.png"
               alt="heroImage"
               fill
-              className="bghero object-contain  ml-auto "
+              className="bghero object-contain  ml-auto"
             />
           </div>
         </div>

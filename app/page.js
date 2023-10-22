@@ -5,6 +5,7 @@ import Hero from "@/components/Hero/Hero";
 import SearchFilter from "@/components/SearchFilter/SearchFilter";
 import fetchCars from "./utils/getCars";
 import { useEffect, useState } from "react";
+import CarCard from "@/components/CarCard/CarCard";
 
 export default function Home() {
   const [allCars, setAllCars] = useState([]);
@@ -48,11 +49,16 @@ export default function Home() {
 
   return (
     <>
-      <ContainerWrapper>
+      <ContainerWrapper addStyle={""}>
         <Hero />
+
         <SearchFilter setManuFacturer={setManuFacturer} setModel={setModel} />
-        {allCars.length > 0 && <div>Cars</div>}
-        {loading && <div>Loading...</div>}
+        {loading && <div className="">Loading...</div>}
+        <div className="block md:flex flex-wrap mx-auto justify-start">
+          {(allCars.length > 1 && <CarCard cars={allCars} />) || (
+            <div>We have 0 {manufacturer} for rent</div>
+          )}
+        </div>
       </ContainerWrapper>
     </>
   );

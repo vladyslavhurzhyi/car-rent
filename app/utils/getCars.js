@@ -11,8 +11,7 @@ async function fetchCars(filters) {
   const url = `https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?make=${manufacturer}&year=${year}&model=${model}&limit=${limit}&fuel_type=${fuel}`;
   try {
     const response = await fetch(url, options);
-    const result = await response.text();
-    console.log(result);
+    const result = await response.json();
     return result;
   } catch (error) {
     console.error(error);
