@@ -52,6 +52,7 @@ export default function Home() {
         <Hero />
         <SearchFilter setManuFacturer={setManuFacturer} setModel={setModel} />
         {allCars.length > 0 && <div>Cars</div>}
+        {loading && <div>Loading...</div>}
       </ContainerWrapper>
     </>
   );
