@@ -6,7 +6,12 @@ import { Combobox, Transition } from "@headlessui/react";
 import { CheckIcon } from "@heroicons/react/20/solid";
 import { manufacturers } from "@/app/constants/constants";
 
-const SearchManufactures = ({ manufacturer, selected, setSelected }) => {
+const SearchManufactures = ({
+  manufacturer,
+
+  selected,
+  setSelected,
+}) => {
   const [query, setQuery] = useState("");
 
   const filteredManufacturers =
@@ -33,6 +38,7 @@ const SearchManufactures = ({ manufacturer, selected, setSelected }) => {
                 alt="car logo"
               />
             </Combobox.Button>
+
             <Combobox.Input
               className="w-full border-none py-2 pl-10 pr-10 text-sm leading-5 text-gray-900 focus:ring-0"
               onChange={(event) => setQuery(event.target.value)} // Update the search query when the input changes

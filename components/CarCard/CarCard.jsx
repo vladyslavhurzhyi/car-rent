@@ -7,7 +7,7 @@ const CarCard = ({ cars }) => {
         return (
           <div
             key={index}
-            className="max-w-[350px]  bg-slate-100 p-4 rounded-xl mt-4 md:mr-4 mx-auto md:mx-0"
+            className="w-[300px] max-w-[300px]  bg-slate-100 p-4 rounded-xl mt-4 md:mr-4 mx-auto md:mx-0"
           >
             <div className="flex flex-col">
               <p className="font-bold uppercase text-2xl">{car.make}</p>
@@ -24,11 +24,35 @@ const CarCard = ({ cars }) => {
             />
 
             <div className="flex justify-between mb-2 px-2 mt-4">
-              <p className=" text-gray-400">
-                {car.transmission === "a" ? "Automatic" : "Manual"}
-              </p>
-              <p className=" uppercase text-gray-400">{car.drive}</p>
-              <p className=" text-gray-400">{car.combination_mpg} MPG</p>
+              <div className="flex flex-col items-center">
+                <Image
+                  src={"./steering-wheel.svg"}
+                  width={25}
+                  height={25}
+                  className="mb-2"
+                />
+                <p className=" text-gray-400">
+                  {car.transmission === "a" ? "Automatic" : "Manual"}
+                </p>
+              </div>
+              <div className="flex flex-col items-center">
+                <Image
+                  src={"./tire.svg"}
+                  width={25}
+                  height={25}
+                  className="mb-2"
+                />
+                <p className=" uppercase text-gray-400">{car.drive}</p>
+              </div>
+              <div className="flex flex-col items-center">
+                <Image
+                  src={"./gas.svg"}
+                  width={25}
+                  height={25}
+                  className="mb-2"
+                />
+                <p className=" text-gray-400">{car.combination_mpg} MPG</p>
+              </div>
             </div>
           </div>
         );
