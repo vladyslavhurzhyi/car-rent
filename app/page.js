@@ -62,6 +62,7 @@ export default function Home() {
           <Image
             className=" z-50 absolute left-1/2"
             src={"./loader.svg"}
+            alt="loader"
             width={50}
             height={50}
           />

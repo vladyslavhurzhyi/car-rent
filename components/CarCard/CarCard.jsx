@@ -30,6 +30,7 @@ const CarCard = ({ cars }) => {
                   width={25}
                   height={25}
                   className="mb-2"
+                  alt="steering-wheel"
                 />
                 <p className=" text-gray-400">
                   {car.transmission === "a" ? "Automatic" : "Manual"}
@@ -38,6 +39,7 @@ const CarCard = ({ cars }) => {
               <div className="flex flex-col items-center">
                 <Image
                   src={"./tire.svg"}
+                  alt="tire"
                   width={25}
                   height={25}
                   className="mb-2"
@@ -47,6 +49,7 @@ const CarCard = ({ cars }) => {
               <div className="flex flex-col items-center">
                 <Image
                   src={"./gas.svg"}
+                  alt="gas"
                   width={25}
                   height={25}
                   className="mb-2"
