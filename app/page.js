@@ -58,6 +58,7 @@ export default function Home() {
           setManuFacturer={setManuFacturer}
           setModel={setModel}
         />
+
         {loading && (
           <Image
             className=" z-50 absolute left-1/2"
@@ -67,7 +68,7 @@ export default function Home() {
             height={50}
           />
         )}
-        <div className="block md:flex flex-wrap mx-auto justify-start">
+        <div className="block md:flex md:flex-wrap justify-start mt-4">
           {(allCars.length > 1 && <CarCard cars={allCars} />) || (
             <div>We have 0 {manufacturer} for rent</div>
           )}

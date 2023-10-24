@@ -7,19 +7,19 @@ const CarCard = ({ cars }) => {
         return (
           <div
             key={index}
-            className="w-[300px] max-w-[300px]  bg-slate-100 p-4 rounded-xl mt-4 md:mr-4 mx-auto md:mx-0"
+            className="mx-[10px] w-full md:w-[calc(50%-20px)] lg:w-[calc(25%-20px)] bg-slate-100 p-4 rounded-xl mb-4"
           >
             <div className="flex flex-col">
               <p className="font-bold uppercase text-2xl">{car.make}</p>
-              <p className="uppercase text-xl">{car.model}</p>
+              <p className="uppercase ">{car.model}</p>
             </div>
 
             <Image
               src="/hero.png"
               alt="car image"
               priority
-              width={250}
-              height={250}
+              width={200}
+              height={200}
               className=" mx-auto"
             />
 
