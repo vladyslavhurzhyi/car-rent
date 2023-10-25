@@ -10,7 +10,7 @@ import Image from "next/image";
 
 export default function Home() {
   const [allCars, setAllCars] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   //search state
   const [manufacturer, setManuFacturer] = useState("");
@@ -69,9 +69,11 @@ export default function Home() {
           />
         )}
         <div className="block md:flex md:flex-wrap justify-start mt-4">
-          {(allCars.length > 1 && <CarCard cars={allCars} />) || (
-            <div>We have 0 {manufacturer} for rent</div>
-          )}
+          {(allCars.length < 1 && !loading && (
+            <div className="animate-pulse">
+              We have 0 {manufacturer} {model} for rent
+            </div>
+          )) || <CarCard cars={allCars} />}
         </div>
       </ContainerWrapper>
     </>
