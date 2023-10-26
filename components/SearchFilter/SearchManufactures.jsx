@@ -27,9 +27,9 @@ const SearchManufactures = ({
   return (
     <>
       <Combobox value={selected} onChange={setSelected}>
-        <div className="relative">
-          <div className="relative w-full  py-0.5  cursor-default overflow-hidden rounded-l-lg bg-white text-left border-l-2 border-t-2 border-b-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 ">
-            <Combobox.Button className="absolute top-[9px]">
+        <div className="relative ">
+          <div className="relative   cursor-default overflow-hidden rounded-l-lg bg-white text-left border-l-2 border-t-2 border-b-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 ">
+            <Combobox.Button className="absolute top-[10px]">
               <Image
                 src="/car-logo.svg"
                 width={20}
@@ -40,7 +40,7 @@ const SearchManufactures = ({
             </Combobox.Button>
 
             <Combobox.Input
-              className="w-full focus:outline-none border-none py-2 pl-10 pr-10  leading-5 text-gray-900 focus:ring-0"
+              className="w-full md:w-fit focus:outline-none border-none  py-2.5 pl-10 pr-10  leading-5 text-gray-900 focus:ring-0"
               onChange={(event) => setQuery(event.target.value)} // Update the search query when the input changes
               placeholder="Audi"
             />

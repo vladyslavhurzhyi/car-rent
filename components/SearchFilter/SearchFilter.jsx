@@ -7,7 +7,7 @@ import { CheckIcon } from "@heroicons/react/20/solid";
 import SearchManufactures from "./SearchManufactures";
 
 const SearchButton = ({ otherClasses }) => (
-  <button type="submit" className={`z-10 ${otherClasses}`}>
+  <button type="submit" className={`z-10 p-2 ${otherClasses}`}>
     <Image
       src={"./magnifying-glass.svg"}
       alt={"magnifying glass"}
@@ -43,12 +43,12 @@ const SearchFilter = ({ setModel, setManuFacturer }) => {
           setSelected={setSearchManufacturer}
         />
 
-        <div className="max-sm:w-full flex justify-start items-center relative">
+        <div className=" relative flex justify-start ">
           <Image
             src="/model-icon.png"
             width={20}
             height={20}
-            className="absolute  ml-4"
+            className="absolute top-[10px]  ml-4"
             alt="car model"
           />
           <input
@@ -57,7 +57,7 @@ const SearchFilter = ({ setModel, setManuFacturer }) => {
             value={searchModel}
             onChange={(e) => setSearchModel(e.target.value)}
             placeholder="Q5..."
-            className=" w-full py-2 pl-12 cursor-default overflow-hidden rounded-r-lg bg-white text-left border-r-2 border-t-2 border-b-2 focus:outline-none  sm:text-sm"
+            className="w-full md:w-fit pl-12 cursor-default overflow-hidden rounded-r-lg bg-white text-left border-r-2 border-t-2 border-b-2 focus:outline-none  sm:text-sm"
           />
         </div>
         <SearchButton />
