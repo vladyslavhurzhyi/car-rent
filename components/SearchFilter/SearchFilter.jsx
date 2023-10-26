@@ -6,11 +6,20 @@ import { Combobox, Transition } from "@headlessui/react";
 import { CheckIcon } from "@heroicons/react/20/solid";
 import SearchManufactures from "./SearchManufactures";
 
-const SearchButton = ({ otherClasses }) => (
-  <button type="submit" className={`z-10 p-2 ${otherClasses}`}>
-    Search
-  </button>
-);
+const SearchButton = () => {
+  return (
+    <>
+      <button type="submit" className="z-10 p-2">
+        <Image
+          src={"/magnifyingglass.svg"}
+          alt="search icon"
+          width={30}
+          height={30}
+        ></Image>
+      </button>
+    </>
+  );
+};
 
 const SearchFilter = ({ setModel, setManuFacturer }) => {
   const [searchManufacturer, setSearchManufacturer] = useState("");
@@ -51,10 +60,10 @@ const SearchFilter = ({ setModel, setManuFacturer }) => {
             value={searchModel}
             onChange={(e) => setSearchModel(e.target.value)}
             placeholder="Q5..."
-            className="w-full md:w-fit pl-12 cursor-default overflow-hidden rounded-r-lg bg-white text-left border-r-2 border-t-2 border-b-2 focus:outline-none  sm:text-sm"
+            className={`w-full md:w-fit pl-12 cursor-default overflow-hidden rounded-r-lg bg-white text-left border-r-2 border-t-2 border-b-2 focus:outline-none  sm:text-sm`}
           />
+          <SearchButton />
         </div>
-        <SearchButton />
       </div>
     </form>
   );

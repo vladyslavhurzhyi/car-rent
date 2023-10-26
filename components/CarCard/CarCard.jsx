@@ -1,13 +1,15 @@
 import Image from "next/image";
 
-const CarCard = ({ cars }) => {
+const CarCard = ({ cars, loading }) => {
   return (
     <>
       {cars.map((car, index) => {
         return (
           <div
             key={index}
-            className="mr-[20px] w-full md:w-[calc(50%-20px)] lg:w-[calc(25%-20px)] bg-slate-100 p-4 rounded-xl mb-4"
+            className={`mr-[20px] w-full md:w-[calc(50%-20px)] lg:w-[calc(25%-20px)] bg-slate-100 p-4 rounded-xl mb-4 ${
+              loading ? "animate-pulse" : " "
+            }`}
           >
             <div className="flex flex-col">
               <p className="font-bold uppercase text-2xl">{car.make}</p>

@@ -69,7 +69,7 @@ export default function Home() {
             <div className="animate-pulse ">
               We have 0 {manufacturer} {model} for rent
             </div>
-          )) || <CarCard cars={allCars} />}
+          )) || <CarCard cars={allCars} loading={loading} />}
         </div>
         {loading && (
           <div className=" ">
