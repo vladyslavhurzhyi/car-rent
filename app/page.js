@@ -7,6 +7,7 @@ import fetchCars from "./utils/getCars";
 import { useEffect, useState } from "react";
 import CarCard from "@/components/CarCard/CarCard";
 import Image from "next/image";
+import ShowMore from "@/components/ShowMore/ShowMore";
 
 export default function Home() {
   const [allCars, setAllCars] = useState([]);
@@ -22,6 +23,10 @@ export default function Home() {
 
   //limitState
   const [limit, setLimit] = useState(10);
+
+  const incrementLimit = () => {
+    setLimit((prevState) => prevState + 10);
+  };
 
   const getAllCars = async () => {
     setLoading(true);
@@ -59,22 +64,36 @@ export default function Home() {
           setModel={setModel}
         />
 
-        {loading && (
-          <Image
-            className=" z-50 absolute left-1/2"
-            src={"./loader.svg"}
-            alt="loader"
-            width={50}
-            height={50}
-          />
-        )}
         <div className="block md:flex md:flex-wrap justify-start mt-4">
           {(allCars.length < 1 && !loading && (
-            <div className="animate-pulse">
+            <div className="animate-pulse ">
               We have 0 {manufacturer} {model} for rent
             </div>
           )) || <CarCard cars={allCars} />}
         </div>
+        {loading && (
+          <div className=" ">
+            <Image
+              className="block mx-auto z-50 "
+              src={"./loader.svg"}
+              alt="loader"
+              width={50}
+              height={50}
+            />
+          </div>
+        )}
+
+        {!loading && limit > allCars.length ? (
+          <button
+            disabled
+            className="block mx-auto cursor-not-allowed bg-blue-200  text-white font-bold py-2 px-4  rounded-lg"
+            type="button"
+          >
+            No More
+          </button>
+        ) : (
+          <ShowMore incrementLimit={incrementLimit} loading={loading} />
+        )}
       </ContainerWrapper>
     </>
   );

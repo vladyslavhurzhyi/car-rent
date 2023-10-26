@@ -8,13 +8,7 @@ import SearchManufactures from "./SearchManufactures";
 
 const SearchButton = ({ otherClasses }) => (
   <button type="submit" className={`z-10 p-2 ${otherClasses}`}>
-    <Image
-      src={"./magnifying-glass.svg"}
-      alt={"magnifying glass"}
-      width={40}
-      height={40}
-      className="object-contain"
-    />
+    Search
   </button>
 );
 
