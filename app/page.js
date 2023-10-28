@@ -3,7 +3,7 @@
 import ContainerWrapper from "@/components/ContainerWrapper";
 import Hero from "@/components/Hero/Hero";
 import SearchFilter from "@/components/SearchFilter/SearchFilter";
-import fetchCars from "./utils/getCars";
+import { fetchCars } from "./utils/fetchData";
 import { useEffect, useState } from "react";
 import CarCard from "@/components/CarCard/CarCard";
 import Image from "next/image";
@@ -49,8 +49,6 @@ export default function Home() {
 
   useEffect(() => {
     getAllCars();
-    console.log("manufacturer", manufacturer);
-    console.log("allCars", allCars);
   }, [fuel, year, limit, manufacturer, model]);
 
   return (
