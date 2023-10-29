@@ -7,7 +7,7 @@ export default function Background() {
     <Image
       alt="bgImage"
       src={bgImage}
-      className="bghero overflow-hidden"
+      className="bghero blur-sm overflow-hidden"
       priority
       quality={80}
     />

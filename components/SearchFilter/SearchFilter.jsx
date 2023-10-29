@@ -21,7 +21,7 @@ const SearchButton = () => {
   );
 };
 
-const SearchFilter = ({ setModel, setManuFacturer }) => {
+const SearchFilter = () => {
   const [searchManufacturer, setSearchManufacturer] = useState("");
   const [searchModel, setSearchModel] = useState("");
 
@@ -32,8 +32,7 @@ const SearchFilter = ({ setModel, setManuFacturer }) => {
       return alert("Please provide some input");
     }
 
-    setModel(searchModel);
-    setManuFacturer(searchManufacturer);
+    updateSearchParams();
   };
 
   return (
