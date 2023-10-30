@@ -20,7 +20,7 @@ const DealOfTheDay = () => {
               Mercedes-Benz A45 at an unbeatable price!
             </p>
           </div>
-          <button class="block mx-auto bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full">
+          <button className="block mx-auto bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full">
             Rent Now!
           </button>
         </div>

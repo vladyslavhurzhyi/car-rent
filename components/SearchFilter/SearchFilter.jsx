@@ -5,6 +5,7 @@ import { Fragment, useState } from "react";
 import { Combobox, Transition } from "@headlessui/react";
 import { CheckIcon } from "@heroicons/react/20/solid";
 import SearchManufactures from "./SearchManufactures";
+import { useRouter } from "next/navigation";
 
 const SearchButton = () => {
   return (
@@ -25,6 +26,30 @@ const SearchFilter = () => {
   const [searchManufacturer, setSearchManufacturer] = useState("");
   const [searchModel, setSearchModel] = useState("");
 
+  const router = useRouter();
+
+  const updateSearchParams = (manufacturer, model) => {
+    const searchParams = new URLSearchParams(window.location.search);
+
+    if (manufacturer) {
+      searchParams.set("manufacturer", manufacturer);
+    } else {
+      searchParams.delete("manufacturer", manufacturer);
+    }
+
+    if (model) {
+      searchParams.set("model", model);
+    } else {
+      searchParams.delete("model", model);
+    }
+
+    const newPathName = `${
+      window.location.pathname
+    }?${searchParams.toString()}`;
+
+    router.push(newPathName, { scroll: false });
+  };
+
   const handleSearch = (e) => {
     e.preventDefault();
 
@@ -32,7 +57,10 @@ const SearchFilter = () => {
       return alert("Please provide some input");
     }
 
-    updateSearchParams();
+    updateSearchParams(
+      searchManufacturer.toLowerCase(),
+      searchModel.toLowerCase()
+    );
   };
 
   return (

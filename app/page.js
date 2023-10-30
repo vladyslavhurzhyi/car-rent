@@ -10,7 +10,7 @@ import DealOfTheDay from "@/components/DealOfTheDay/DealOfTheDay";
 export default async function Home({ searchParams }) {
   const allCars = await fetchCars({
     manufacturer: searchParams.manufacturer || "",
-    model: searchParams.model | "",
+    model: searchParams.model || "",
     year: searchParams.year || 2022,
     fuel: searchParams.fuel || "",
     limit: searchParams.limit || 10,
