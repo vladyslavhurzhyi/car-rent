@@ -1,17 +1,25 @@
 "use client";
 import { OrbitControls } from "@react-three/drei";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-import { useLoader } from "@react-three/fiber";
+import { useFrame, useLoader } from "@react-three/fiber";
 import { Canvas } from "@react-three/fiber";
-import { Suspense } from "react";
+import { Suspense, useRef, useState } from "react";
 
 const ModelX = () => {
   const gltf = useLoader(GLTFLoader, "./car/scene.gltf");
+  const modelRef = useRef();
+  const [rotationSpeed] = useState(0.005);
+
+  useFrame(() => {
+    modelRef.current.rotation.y -= rotationSpeed;
+  });
+
   return (
     <>
       <primitive
-        position={[0, -3.3, 0]}
-        rotation={[6.3, -0.1, 0]}
+        ref={modelRef}
+        position={[0.5, -2, 0]}
+        rotation={[6.28, -0.2, 0]}
         object={gltf.scene}
         scale={0.4}
       />

@@ -9,7 +9,7 @@ const CarCard = ({ cars, loading }) => {
         return (
           <div
             key={index}
-            className={`md:mr-[20px] w-full md:w-[calc(50%-20px)] lg:w-[calc(25%-20px)] bg-slate-100 p-4 rounded-xl mb-4 ${
+            className={`md:mx-[10px] w-full md:w-[calc(50%-20px)] lg:w-[calc(25%-20px)] bg-slate-100 p-4 rounded-xl mb-4 ${
               loading ? " animate-pulse" : " "
             }`}
           >

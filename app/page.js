@@ -2,10 +2,10 @@ import ContainerWrapper from "@/components/ContainerWrapper";
 import Hero from "@/components/Hero/Hero";
 import SearchFilter from "@/components/SearchFilter/SearchFilter";
 import { fetchCars } from "./utils/fetchData";
-
 import CarCard from "@/components/CarCard/CarCard";
-import Image from "next/image";
-import ShowMore from "@/components/ShowMore/ShowMore";
+import DealOfTheDay from "@/components/DealOfTheDay/DealOfTheDay";
+
+// import ShowMore from "@/components/ShowMore/ShowMore";
 
 export default async function Home({ searchParams }) {
   const allCars = await fetchCars({
@@ -20,10 +20,10 @@ export default async function Home({ searchParams }) {
     <>
       <ContainerWrapper addStyle={""}>
         <Hero />
-
+        <DealOfTheDay />
         <SearchFilter />
 
-        <div className="block md:flex md:flex-wrap justify-start mt-4">
+        <div className="block   md:flex md:flex-wrap mt-4 md:-mx-[10px] ">
           {(allCars.length < 1 && (
             <div className="animate-pulse ">
               We have 0 {searchParams.manufacturer} {searchParams.model} for
