@@ -1,9 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Fragment, useState } from "react";
-import { Combobox, Transition } from "@headlessui/react";
-import { CheckIcon } from "@heroicons/react/20/solid";
+import { useState } from "react";
 import SearchManufactures from "./SearchManufactures";
 import { useRouter } from "next/navigation";
 
@@ -22,36 +20,43 @@ const SearchButton = () => {
   );
 };
 
-const SearchFilter = () => {
+const SearchFilter = ({ searchParams }) => {
   const [searchManufacturer, setSearchManufacturer] = useState("");
   const [searchModel, setSearchModel] = useState("");
 
   const router = useRouter();
 
   const updateSearchParams = (manufacturer, model) => {
-    const searchParams = new URLSearchParams(window.location.search);
+    const newSearchParams = new URLSearchParams(window.location.search);
 
     if (manufacturer) {
-      searchParams.set("manufacturer", manufacturer);
+      newSearchParams.set("manufacturer", manufacturer);
     } else {
-      searchParams.delete("manufacturer", manufacturer);
+      newSearchParams.delete("manufacturer");
     }
 
     if (model) {
-      searchParams.set("model", model);
+      newSearchParams.set("model", model);
     } else {
-      searchParams.delete("model", model);
+      newSearchParams.delete("model");
     }
 
     const newPathName = `${
       window.location.pathname
-    }?${searchParams.toString()}`;
+    }?${newSearchParams.toString()}`;
 
     router.push(newPathName, { scroll: false });
   };
 
   const handleSearch = (e) => {
     e.preventDefault();
+
+    if (
+      searchManufacturer === searchParams.manufacturer &&
+      searchModel === searchParams.model
+    ) {
+      return;
+    }
 
     if (searchManufacturer.trim().toLocaleLowerCase() === "") {
       return alert("Please provide some input");

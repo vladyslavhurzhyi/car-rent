@@ -5,7 +5,7 @@ import { fetchCars } from "./utils/fetchData";
 import CarCard from "@/components/CarCard/CarCard";
 import DealOfTheDay from "@/components/DealOfTheDay/DealOfTheDay";
 
-// import ShowMore from "@/components/ShowMore/ShowMore";
+import ShowMore from "@/components/ShowMore/ShowMore";
 
 export default async function Home({ searchParams }) {
   const allCars = await fetchCars({
@@ -21,7 +21,7 @@ export default async function Home({ searchParams }) {
       <ContainerWrapper addStyle={""}>
         <Hero />
         <DealOfTheDay />
-        <SearchFilter />
+        <SearchFilter searchParams={searchParams} />
 
         <div className="block   md:flex md:flex-wrap mt-4 md:-mx-[10px] ">
           {(allCars.length < 1 && (
@@ -32,7 +32,12 @@ export default async function Home({ searchParams }) {
           )) || <CarCard cars={allCars} />}
         </div>
 
-        {/* <ShowMore /> */}
+        {allCars.length > 0 && (
+          <ShowMore
+            pageNumber={(searchParams.limit || 10) / 10}
+            isNext={(searchParams.limit || 10) > allCars.length}
+          />
+        )}
       </ContainerWrapper>
     </>
   );

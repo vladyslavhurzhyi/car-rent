@@ -8,7 +8,7 @@ const options = {
 
 export const fetchCars = async (filters) => {
   const { manufacturer, model, fuel, year, limit } = filters;
-  const url = `https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?make=${manufacturer}&model=${model}&year=${year}&limit=${limit}&fuel_type=${fuel}`;
+  const url = `https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?make=${manufacturer}&model=${model}&year=${year}&fuel_type=${fuel}&limit=${limit}`;
   try {
     const response = await fetch(url, options);
     const result = await response.json();
