@@ -1,4 +1,5 @@
 import CarThreeD from "../CarThreeD/CarThreeD";
+import CustomButton from "../CustomButton";
 
 const DealOfTheDay = () => {
   return (
@@ -20,9 +21,7 @@ const DealOfTheDay = () => {
               Mercedes-Benz A45 at an unbeatable price!
             </p>
           </div>
-          <button className="block mx-auto bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full">
-            Rent Now!
-          </button>
+          <CustomButton btnType={"button"} title={"Rent Now!"} />
         </div>
       </div>
     </section>

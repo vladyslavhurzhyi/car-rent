@@ -1,10 +1,11 @@
 "use client";
-import { OrbitControls } from "@react-three/drei";
-
+import { Html, OrbitControls } from "@react-three/drei";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { useFrame, useLoader } from "@react-three/fiber";
 import { Canvas } from "@react-three/fiber";
 import { Suspense, useRef, useState } from "react";
+import Image from "next/image";
+import loaderSvg from "public/loader.svg";
 
 const ModelX = () => {
   const gltf = useLoader(GLTFLoader, "./car/scene.gltf");
@@ -64,7 +65,15 @@ const CarCanvas = () => {
         maxPolarAngle={Math.PI / 2}
         minPolarAngle={Math.PI / 2}
       />
-      <Suspense fallback={null}>
+      <Suspense
+        fallback={
+          <Html>
+            <div className="w-24 h-24">
+              <Image src={loaderSvg} width={50} height={50} alt="loader" />
+            </div>
+          </Html>
+        }
+      >
         <ModelX />
       </Suspense>
     </Canvas>

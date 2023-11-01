@@ -20,6 +20,7 @@ const Hero = () => {
             <Image
               src="/hero.png"
               alt="heroImage"
+              priority
               width={300}
               height={300}
               className="bghero"

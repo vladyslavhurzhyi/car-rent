@@ -29,16 +29,13 @@ const SearchFilter = ({ searchParams }) => {
   const updateSearchParams = (manufacturer, model) => {
     const newSearchParams = new URLSearchParams(window.location.search);
 
-    if (manufacturer) {
-      newSearchParams.set("manufacturer", manufacturer);
-    } else {
-      newSearchParams.delete("manufacturer");
-    }
+    newSearchParams.set("limit", 12);
+    newSearchParams.set("manufacturer", manufacturer);
 
     if (model) {
       newSearchParams.set("model", model);
     } else {
-      newSearchParams.delete("model");
+      newSearchParams.set("model", "");
     }
 
     const newPathName = `${

@@ -2,8 +2,9 @@
 
 import { useRouter } from "next/navigation";
 import { updateSearchParams } from "@/app/utils/updateSearchParams";
+import CustomButton from "../CustomButton";
 
-const ShowMore = ({ pageNumber, isNext }) => {
+const ShowMore = ({ pageNumber, isNext, allCars }) => {
   const router = useRouter();
 
   const handleNavigation = () => {
@@ -14,17 +15,19 @@ const ShowMore = ({ pageNumber, isNext }) => {
   };
 
   return (
-    <div className="w-full flex-center gap-5 mt-10">
-      {isNext && (
-        <button
-          type="button"
-          className="block mx-auto bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full"
-          onClick={handleNavigation}
-        >
-          Show More
-        </button>
+    <>
+      {allCars.length && (
+        <div className="w-full flex-center gap-5 mt-10">
+          {isNext && (
+            <CustomButton
+              btnType={"button"}
+              title={"Show More"}
+              handleClick={handleNavigation}
+            />
+          )}
+        </div>
       )}
-    </div>
+    </>
   );
 };
 
