@@ -9,7 +9,7 @@ export default function Background() {
       src={bgImage}
       className="bghero blur-sm overflow-hidden"
       priority
-      quality={80}
+      quality={50}
     />
   );
 }

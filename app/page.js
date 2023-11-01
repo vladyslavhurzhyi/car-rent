@@ -1,10 +1,10 @@
 import ContainerWrapper from "@/components/ContainerWrapper";
 import Hero from "@/components/Hero/Hero";
-import SearchFilter from "@/components/SearchFilter/SearchFilter";
+import SearchFilter from "@/components/SearchFilter";
 import { fetchCars } from "./utils/fetchData";
-import CarCards from "@/components/CarCard/CarCard";
-import DealOfTheDay from "@/components/DealOfTheDay/DealOfTheDay";
-import ShowMore from "@/components/ShowMore/ShowMore";
+import CarCards from "@/components/CarCard";
+import DealOfTheDay from "@/components/DealOfTheDay";
+import ShowMore from "@/components/ShowMore";
 
 export default async function Home({ searchParams }) {
   const allCars = await fetchCars({

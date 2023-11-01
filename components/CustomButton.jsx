@@ -2,10 +2,10 @@ const CustomButton = ({ title, customStyles, btnType, handleClick, icon }) => {
   return (
     <button
       type={btnType || "submit"}
-      className={`${customStyles} block mx-auto bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full`}
+      className={`${customStyles} block group mx-auto bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full`}
       onClick={handleClick}
     >
-      <span className="flex justify-center hover:scale-105 transition-all">
+      <span className="flex justify-center group-hover:scale-105 transition-all">
         {title}{" "}
         {icon && (
           <svg
