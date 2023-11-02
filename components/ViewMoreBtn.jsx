@@ -4,7 +4,7 @@ import { useState } from "react";
 import CustomButton from "./CustomButton";
 import CarInfoModal from "./CarInfoModal";
 
-const ViewMoreBtn = () => {
+const ViewMoreBtn = ({ car }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleOpen = () => {
@@ -22,7 +22,7 @@ const ViewMoreBtn = () => {
           handleClick={handleOpen}
         />
       </div>
-      <CarInfoModal isOpen={isOpen} setIsOpen={setIsOpen} />
+      <CarInfoModal isOpen={isOpen} setIsOpen={setIsOpen} car={car} />
     </>
   );
 };

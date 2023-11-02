@@ -16,11 +16,11 @@ const CarCards = ({ cars, loading, searchParams }) => {
             return (
               <div
                 key={index}
-                className={`md:mx-[10px] w-full md:w-[calc(50%-20px)] lg:w-[calc(25%-20px)]  bg-slate-100 p-4 rounded-xl mb-4 hover:shadow-md transition-all ease-in duration-200 group ${
+                className={`md:mx-[10px] flex-col justify-between w-full md:w-[calc(50%-20px)] lg:w-[calc(25%-20px)]  bg-slate-100 p-4 rounded-xl mb-4 hover:shadow-md transition-all ease-in duration-200 group ${
                   loading ? " animate-pulse" : " "
                 }`}
               >
-                <div className="flex flex-col">
+                <div className="flex flex-col mb-10">
                   <p className="font-bold uppercase text-2xl">{car.make}</p>
                   <p className="uppercase ">{car.model}</p>
                 </div>
@@ -32,7 +32,7 @@ const CarCards = ({ cars, loading, searchParams }) => {
                   className={`mx-auto mb-4`}
                   quality={50}
                 />
-                <div className="flex justify-between py-4 px-2  group-hover:hidden transition-all   ">
+                <div className="flex justify-between px-2  group-hover:hidden transition-all   ">
                   <div className="flex flex-col items-center ">
                     <Image
                       src={"./steering-wheel.svg"}
@@ -66,15 +66,7 @@ const CarCards = ({ cars, loading, searchParams }) => {
                     <p className=" text-gray-400">{car.combination_mpg} MPG</p>
                   </div>
                 </div>
-                <ViewMoreBtn />
-                {/* <div className=" hidden py-4 group-hover:block  transition-all">
-                  <CustomButton
-                    title={"View More"}
-                    btnType={"button"}
-                    customStyles={"w-full"}
-                    icon={true}
-                  />
-                </div> */}
+                <ViewMoreBtn car={car} />
               </div>
             );
           })}

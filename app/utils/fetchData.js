@@ -18,7 +18,7 @@ export const fetchCars = async (filters) => {
   }
 };
 
-export const generateImageUrl = (car) => {
+export const generateImageUrl = (car, angle) => {
   const { make, model, year } = car;
 
   const url = new URL("https://cdn.imagin.studio/getimage");
@@ -27,6 +27,7 @@ export const generateImageUrl = (car) => {
   url.searchParams.append("make", make);
   url.searchParams.append("modelFamily", model.split(" ")[0]);
   url.searchParams.append("modelYear", year);
+  url.searchParams.append("angle", `${angle}`);
 
   return `${url}`;
 };
