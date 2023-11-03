@@ -11,18 +11,14 @@ const CarInfoModal = ({ isOpen, setIsOpen, car }) => {
       <Dialog
         open={isOpen}
         onClose={() => setIsOpen(false)}
-        className="relative z-50 "
+        className="relative z-50"
       >
-        {/* The backdrop, rendered as a fixed sibling to the panel container */}
-        <div className="fixed inset-0  bg-black/30 " aria-hidden="true" />
-
-        {/* Full-screen container to center the panel */}
-        <div className="fixed inset-0 flex w-screen  justify-center p-4 rounded-lg overflow-auto pb-10 mb-4">
-          {/* The actual dialog panel  */}
-          <Dialog.Panel className="mx-auto max-w-sm rounded bg-white w-full">
+        <div className="fixed inset-0 bg-black/30  " aria-hidden="true" />
+        <div className="fixed inset-0  flex w-fit md:h-max   justify-center  rounded-lg overflow-y-auto bg-white px-4 mx-2 my-5 md:m-auto">
+          <Dialog.Panel className=" relative mx-auto max-w-sm rounded bg-white w-full ">
             <button
               type="button"
-              className="p-2 ml-auto block "
+              className="p-4 fixed md:absolute top-5 right-0 md:top-0"
               onClick={() => setIsOpen(false)}
             >
               <svg
@@ -81,10 +77,7 @@ const CarInfoModal = ({ isOpen, setIsOpen, car }) => {
               </div>
               <div>
                 <div className="my-4 py-4">
-                  <CustomButton
-                    title={`Rent ${car.make} now`}
-                    customStyles={"uppercase"}
-                  />
+                  <CustomButton title={`Rent now`} customStyles={"uppercase"} />
                 </div>
               </div>
             </div>
