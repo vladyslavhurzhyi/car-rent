@@ -11,15 +11,15 @@ const CarInfoModal = ({ isOpen, setIsOpen, car }) => {
       <Dialog
         open={isOpen}
         onClose={() => setIsOpen(false)}
-        className="relative z-50"
+        className="relative z-50 "
       >
         {/* The backdrop, rendered as a fixed sibling to the panel container */}
-        <div className="fixed inset-0 bg-black/30" aria-hidden="true" />
+        <div className="fixed inset-0  bg-black/30 " aria-hidden="true" />
 
         {/* Full-screen container to center the panel */}
-        <div className="fixed inset-0 flex w-screen items-center justify-center p-4 rounded-lg">
+        <div className="fixed inset-0 flex w-screen  justify-center p-4 rounded-lg overflow-auto pb-10 mb-4">
           {/* The actual dialog panel  */}
-          <Dialog.Panel className="mx-auto max-w-sm rounded bg-white w-full  ">
+          <Dialog.Panel className="mx-auto max-w-sm rounded bg-white w-full">
             <button
               type="button"
               className="p-2 ml-auto block "
@@ -29,13 +29,13 @@ const CarInfoModal = ({ isOpen, setIsOpen, car }) => {
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke-width="1.5"
+                strokeWidth="1.5"
                 stroke="currentColor"
                 className="w-6 h-6  hover:stroke-blue-500 transition-all"
               >
                 <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                 />
               </svg>
@@ -50,7 +50,6 @@ const CarInfoModal = ({ isOpen, setIsOpen, car }) => {
                 priority
               />
             </div>
-
             {/* ///////////////// */}
             <div className="flex justify-center gap-2 mb-4">
               <Image
@@ -75,12 +74,22 @@ const CarInfoModal = ({ isOpen, setIsOpen, car }) => {
                 priority
               />
             </div>
-            <div className="flex flex-col mb-4 px-4">
-              <h2 className="font-bold uppercase text-3xl ">{car.make}</h2>
-              <h3 className="uppercase text-xl">{car.model.split(" ")[0]}</h3>
+            <div className="flex justify-between items-center mb-4 px-4">
+              <div>
+                <h2 className="font-bold uppercase text-3xl ">{car.make}</h2>
+                <h3 className="uppercase text-xl">{car.model.split(" ")[0]}</h3>
+              </div>
+              <div>
+                <div className="my-4 py-4">
+                  <CustomButton
+                    title={`Rent ${car.make} now`}
+                    customStyles={"uppercase"}
+                  />
+                </div>
+              </div>
             </div>
             {/* /////////////// */}
-            <div className="">
+            <div className=" bg-white">
               {Object.entries(car).map(([key, value]) => (
                 <div
                   className="flex justify-between odd:bg-white even:bg-slate-50"
@@ -95,12 +104,6 @@ const CarInfoModal = ({ isOpen, setIsOpen, car }) => {
                   </p>
                 </div>
               ))}
-            </div>
-            <div className="block my-4">
-              <CustomButton
-                title={`Rent ${car.make} now`}
-                customStyles={"uppercase"}
-              />
             </div>
           </Dialog.Panel>
         </div>
