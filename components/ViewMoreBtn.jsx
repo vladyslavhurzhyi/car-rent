@@ -13,7 +13,7 @@ const ViewMoreBtn = ({ car }) => {
 
   return (
     <>
-      <div className=" hidden py-4 group-hover:block  transition-all">
+      <div className=" hidden  group-hover:block  transition-all">
         <CustomButton
           title={"View More"}
           btnType={"button"}

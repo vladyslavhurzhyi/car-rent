@@ -1,5 +1,4 @@
 import { generateImageUrl } from "@/app/utils/fetchData";
-
 import Image from "next/image";
 import ViewMoreBtn from "./ViewMoreBtn";
 
@@ -13,6 +12,10 @@ const CarCards = ({ cars, loading, searchParams }) => {
       )) || (
         <>
           {cars.map((car, index) => {
+            const partsModel = car.model.split(" ");
+
+            const rentalCost = Math.floor(Math.random() * 50) + 30;
+
             return (
               <div
                 key={index}
@@ -22,8 +25,22 @@ const CarCards = ({ cars, loading, searchParams }) => {
               >
                 <div className="flex flex-col mb-10">
                   <p className="font-bold uppercase text-2xl">{car.make}</p>
-                  <p className="uppercase ">{car.model}</p>
+                  <div className="flex gap-2">
+                    <p className="uppercase ">
+                      {partsModel[0]} {partsModel[1]} {partsModel[2]}
+                    </p>
+                  </div>
+                  <p className="flex mt-2 text-[32px] leading-[38px] font-extrabold">
+                    <span className="self-start text-[14px] leading-[17px] font-semibold">
+                      $
+                    </span>
+                    {rentalCost}
+                    <span className="self-end text-[14px] leading-[17px] font-medium">
+                      /day
+                    </span>
+                  </p>
                 </div>
+
                 <Image
                   src={generateImageUrl(car)}
                   alt="car image"
@@ -32,7 +49,7 @@ const CarCards = ({ cars, loading, searchParams }) => {
                   className={`mx-auto mb-4`}
                   quality={50}
                 />
-                <div className="flex justify-between px-2  group-hover:hidden transition-all   ">
+                <div className="flex justify-between  group-hover:hidden transition-all   ">
                   <div className="flex flex-col items-center ">
                     <Image
                       src={"./steering-wheel.svg"}

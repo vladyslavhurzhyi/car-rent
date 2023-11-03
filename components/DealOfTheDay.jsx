@@ -1,5 +1,6 @@
 import CarThreeD from "./CarThreeD.jsx";
 import CustomButton from "./CustomButton";
+import ViewMoreBtn from "./ViewMoreBtn.jsx";
 
 const DealOfTheDay = () => {
   return (
