@@ -14,7 +14,7 @@ const CarInfoModal = ({ isOpen, setIsOpen, car }) => {
         className="relative z-50"
       >
         <div className="fixed inset-0 bg-black/30  " aria-hidden="true" />
-        <div className="fixed inset-0  flex w-fit md:h-max   justify-center  rounded-lg overflow-y-auto bg-white px-4 mx-2 my-5 md:m-auto">
+        <div className="fixed inset-0  flex w-fit md:h-max   justify-center  rounded-lg overflow-y-auto overflow-x-clip bg-white px-4 mx-2 my-5 md:m-auto">
           <Dialog.Panel className=" relative mx-auto max-w-sm rounded bg-white w-full ">
             <button
               type="button"
