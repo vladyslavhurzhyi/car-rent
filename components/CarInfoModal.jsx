@@ -95,10 +95,7 @@ const CarInfoModal = ({ isOpen, setIsOpen, car }) => {
                   className="flex justify-between odd:bg-white even:bg-slate-50"
                   key={key}
                 >
-                  <h4 className="capitalize p-2">
-                    {" "}
-                    {key.split("_").join(" ")}
-                  </h4>
+                  <h4 className="capitalize p-2">{key.split("_").join(" ")}</h4>
                   <p className="capitalize p-2">
                     {value === "a" ? "Automatic" : value}
                   </p>
